@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: fct_openweather_daily_weather
+    description: Final analytic table for OpenWeather daily metrics.
+    columns:
+      - name: city_name
+        tests:
+          - not_null
+      - name: country_code
+        tests:
+          - not_null
+      - name: observation_date
+        tests:
+          - not_null
+      - name: observation_count
+        tests:
+          - not_null
+          - greater_than_or_equal:
+              arguments:
+                min_value: 1
+      - name: avg_temperature_c
+        tests:
+          - not_null
+          - between_inclusive:
+              arguments:
+                min_value: -80
+                max_value: 60
+      - name: avg_humidity_pct
+        tests:
+          - between_inclusive:
+              arguments:
+                min_value: 0
+                max_value: 100
+      - name: avg_cloudiness_pct
+        tests:
+          - between_inclusive:
+              arguments:
+                min_value: 0
+                max_value: 100

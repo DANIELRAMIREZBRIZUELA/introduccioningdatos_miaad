@@ -1,0 +1,22 @@
+# Python virtual environments
+.venv/
+.venv-wsl/
+
+# dbt build artifacts
+logs/
+target/
+dbt_packages/
+
+# Local profiles and secrets
+profiles.wsl.yml
+*.key
+*.pem
+*.token
+
+# Class materials (not deliverables)
+*.pdf
+
+# OS/editor clutter
+.DS_Store
+Thumbs.db
+.vscode/

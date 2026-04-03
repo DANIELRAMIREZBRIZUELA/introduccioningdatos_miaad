@@ -1,0 +1,33 @@
+version: 2
+
+sources:
+  - name: openweather_raw
+    database: "{{ target.database }}"
+    schema: "{{ var('openweather_raw_schema', 'raw_openweather') }}"
+    tables:
+      - name: raw_weather
+        identifier: "{{ var('openweather_raw_table', '_airbyte_raw_weather') }}"
+        description: Raw OpenWeather daily payload loaded by Airbyte.
+        columns:
+          - name: _airbyte_raw_id
+            tests:
+              - not_null
+          - name: _airbyte_extracted_at
+            tests:
+              - not_null
+          - name: daily
+            tests:
+              - not_null
+      - name: raw_weather_current
+        identifier: "{{ var('openweather_raw_table', '_airbyte_raw_weather') }}"
+        description: Raw OpenWeather current payload loaded by Airbyte.
+        columns:
+          - name: _airbyte_raw_id
+            tests:
+              - not_null
+          - name: _airbyte_extracted_at
+            tests:
+              - not_null
+          - name: current
+            tests:
+              - not_null

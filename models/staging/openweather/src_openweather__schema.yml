@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: stg_openweather__weather
+    description: Cleaned OpenWeather records extracted from the Airbyte raw table.
+    columns:
+      - name: city_name
+        tests:
+          - not_null
+      - name: country_code
+        tests:
+          - not_null
+      - name: observation_ts
+        tests:
+          - not_null
+      - name: observation_date
+        tests:
+          - not_null
+      - name: temperature_c
+        tests:
+          - not_null
+      - name: humidity_pct
+        tests:
+          - not_null
+
+  - name: stg_openweather__current
+    description: Current weather conditions parsed from OpenWeather current JSON payload.
+    columns:
+      - name: city_name
+        tests:
+          - not_null
+      - name: country_code
+        tests:
+          - not_null
+      - name: observation_ts
+        tests:
+          - not_null
+      - name: observation_date
+        tests:
+          - not_null
+      - name: temperature_c
+        tests:
+          - not_null
+      - name: humidity_pct
+        tests:
+          - not_null
