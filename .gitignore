@@ -8,7 +8,9 @@ target/
 dbt_packages/
 
 # Local profiles and secrets
+profiles.yml
 profiles.wsl.yml
+.user.yml
 *.key
 *.pem
 *.token
@@ -20,3 +22,4 @@ profiles.wsl.yml
 .DS_Store
 Thumbs.db
 .vscode/
+dbt_internal_packages/
