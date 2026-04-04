@@ -40,6 +40,11 @@ models:
   - name: stg_openweather__current
     description: Datos actuales de OpenWeather parseados del JSON current.
     columns:
+      - name: _airbyte_raw_id
+        description: Identificador técnico del registro crudo en Airbyte.
+        tests:
+          - not_null
+          - unique
       - name: city_name
         description: Nombre de ciudad derivado de timezone.
         tests:

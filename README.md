@@ -20,6 +20,8 @@ Este proyecto implementa una canalización dbt por capas para datos de OpenWeath
 - esquema: `main`
 - tabla: `onecall`
 
+Nota: en `models/staging/_sources.yml` se definen `raw_weather` y `raw_weather_current` con el mismo `identifier` (`onecall`) porque ambos modelos extraen secciones distintas del mismo JSON crudo cargado por Airbyte.
+
 Configurado mediante variables de dbt en `dbt_project.yml`:
 
 - `openweather_raw_schema`
@@ -59,11 +61,38 @@ La clase 6 comienza después de la clase 5 y queda completada en el commit `0964
 1. `dbt-expectations` instalado (`packages.yml` + `package-lock.yml`).
 2. 5 o más tests genéricos en archivos YAML de modelos.
 3. 3 tests de `dbt-expectations` en archivos YAML de modelos.
-4. 2 tests singulares en `tests/assert_no_future_observation_dates.sql` y `tests/assert_temperature_band_consistency.sql`.
+4. 2 tests singulares en `tests/assert_sky_condition_consistency.sql` y `tests/assert_temperature_band_consistency.sql`.
 5. Documentación ampliada en descripciones de modelos y columnas.
 6. Captura del DAG incluida como `Clase6_DAG.png`.
 
 La clase 5 y la clase 6 están separadas por el historial de commits y por archivos de evidencia distintos (`Clase5_DAG.png` y `Clase6_DAG.png`).
+
+## Checklist de cumplimiento
+
+### Clase 5
+
+1. Proyecto dbt inicializado: sí.
+2. Al menos 2 modelos staging: sí.
+3. Al menos 1 modelo intermediate: sí.
+4. Al menos 1 modelo mart: sí.
+5. `_sources.yml` configurado: sí.
+6. DAG de clase 5 publicado: sí (`Clase5_DAG.png`).
+
+### Clase 6
+
+1. `dbt-expectations` instalado: sí.
+2. Al menos 5 tests genéricos: sí.
+3. Al menos 3 tests de `dbt-expectations`: sí.
+4. Al menos 2 tests singulares: sí.
+5. Documentación de modelos y columnas clave: sí.
+6. `dbt build` con tests en verde: sí.
+7. DAG de clase 6 publicado: sí (`Clase6_DAG.png`).
+
+## Evidencia de ejecución de tests
+
+Última validación completa ejecutada localmente con `dbt build --profiles-dir .`:
+
+- Resultado: `PASS=42 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=42`.
 
 ## Alternativa para generar el DAG
 
