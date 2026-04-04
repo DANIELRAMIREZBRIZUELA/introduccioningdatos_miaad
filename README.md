@@ -1,80 +1,80 @@
 # OpenWeather + Airbyte Cloud + MotherDuck + dbt
 
-This project implements a layered dbt pipeline for OpenWeather data loaded by Airbyte into MotherDuck.
+Este proyecto implementa una canalización dbt por capas para datos de OpenWeather cargados por Airbyte en MotherDuck.
 
-## Implemented architecture
+## Arquitectura implementada
 
-1. Airbyte Cloud ingests OpenWeather into MotherDuck.
-2. dbt transforms the raw table into staging, intermediate, and mart layers.
+1. Airbyte Cloud ingiere OpenWeather en MotherDuck.
+2. dbt transforma la tabla cruda en capas staging, intermediate y mart.
 
-## Current project structure
+## Estructura actual del proyecto
 
-- `models/staging/_sources.yml`: source definitions
-- `models/staging/openweather/stg_openweather__weather.sql`: daily weather staging
-- `models/staging/openweather/stg_openweather__current.sql`: current weather staging
-- `models/intermediate/openweather/int_openweather__daily_summary.sql`: intermediate aggregation
-- `models/marts/weather/fct_openweather_daily_weather.sql`: final mart table
+- `models/staging/_sources.yml`: definición de fuentes
+- `models/staging/openweather/stg_openweather__weather.sql`: staging de clima diario
+- `models/staging/openweather/stg_openweather__current.sql`: staging de clima actual
+- `models/intermediate/openweather/int_openweather__daily_summary.sql`: agregación intermedia
+- `models/marts/weather/fct_openweather_daily_weather.sql`: tabla mart final
 
-## Current MotherDuck source mapping
+## Mapeo actual de la fuente en MotherDuck
 
-- schema: `main`
-- table: `onecall`
+- esquema: `main`
+- tabla: `onecall`
 
-Configured via dbt vars in `dbt_project.yml`:
+Configurado mediante variables de dbt en `dbt_project.yml`:
 
 - `openweather_raw_schema`
 - `openweather_raw_table`
 
-## Run locally
+## Ejecución local
 
-1. Set `MOTHERDUCK_TOKEN` in your shell.
-2. Run `dbt build`.
+1. Definir `MOTHERDUCK_TOKEN` en la terminal.
+2. Ejecutar `dbt build`.
 
-## Assignment coverage status
+## Estado de cobertura de la tarea
 
-1. dbt project initialized and configured: done.
-2. At least 2 staging models: done.
-3. At least 1 intermediate model: done.
-4. At least 1 mart model: done.
-5. `_sources.yml` configured: done.
-6. DAG screenshot from dbt docs: done (`Clase5_DAG.png`).
+1. Proyecto dbt inicializado y configurado: completo.
+2. Al menos 2 modelos staging: completo.
+3. Al menos 1 modelo intermediate: completo.
+4. Al menos 1 modelo mart: completo.
+5. `_sources.yml` configurado: completo.
+6. Captura del DAG desde dbt docs: completo (`Clase5_DAG.png`).
 
-## DAG evidence
+## Evidencia del DAG
 
-The lineage screenshot for class 5 deliverable is included at `Clase5_DAG.png`.
+La captura del linaje correspondiente al entregable de la clase 5 está incluida en `Clase5_DAG.png`.
 
-## Scope by class (for grading)
+## Alcance por clase para la evaluación
 
-Class 5 ends in commit `c2618a5` on `main` with these deliverables:
+La clase 5 termina en el commit `c2618a5` en `main` con estos entregables:
 
-1. `dbt_project.yml` configured.
-2. At least 2 staging models.
-3. At least 1 intermediate model.
-4. At least 1 mart model.
-5. `models/staging/_sources.yml` configured.
-6. DAG screenshot included as `Clase5_DAG.png`.
+1. `dbt_project.yml` configurado.
+2. Al menos 2 modelos staging.
+3. Al menos 1 modelo intermediate.
+4. Al menos 1 modelo mart.
+5. `models/staging/_sources.yml` configurado.
+6. Captura del DAG incluida como `Clase5_DAG.png`.
 
-Class 6 starts after Class 5 and is completed in commit `0964bda` on `main` with these deliverables:
+La clase 6 comienza después de la clase 5 y queda completada en el commit `0964bda` en `main` con estos entregables:
 
-1. `dbt-expectations` installed (`packages.yml` + `package-lock.yml`).
-2. 5+ generic tests in model schema YAML files.
-3. 3 dbt-expectations tests in schema YAML files.
-4. 2 singular tests in `tests/assert_no_future_observation_dates.sql` and `tests/assert_temperature_band_consistency.sql`.
-5. Documentation expanded in model/column descriptions.
-6. DAG screenshot included as `Clase6_DAG.png`.
+1. `dbt-expectations` instalado (`packages.yml` + `package-lock.yml`).
+2. 5 o más tests genéricos en archivos YAML de modelos.
+3. 3 tests de `dbt-expectations` en archivos YAML de modelos.
+4. 2 tests singulares en `tests/assert_no_future_observation_dates.sql` y `tests/assert_temperature_band_consistency.sql`.
+5. Documentación ampliada en descripciones de modelos y columnas.
+6. Captura del DAG incluida como `Clase6_DAG.png`.
 
-Class 5 and Class 6 are intentionally separated by commit history and by dedicated DAG evidence files (`Clase5_DAG.png` and `Clase6_DAG.png`).
+La clase 5 y la clase 6 están separadas por el historial de commits y por archivos de evidencia distintos (`Clase5_DAG.png` y `Clase6_DAG.png`).
 
-## DAG screenshot workaround
+## Alternativa para generar el DAG
 
-Your machine policy blocks loading the MotherDuck DuckDB extension for `dbt-core docs generate` (Windows App Control), while `dbt-fusion` runs successfully.
+La política de tu equipo bloquea la carga de la extensión DuckDB de MotherDuck cuando se usa `dbt-core docs generate` (App Control de Windows), mientras que `dbt-fusion` sí funciona correctamente.
 
-Recommended workaround for the deliverable screenshot:
+Alternativa recomendada para obtener la captura requerida:
 
-1. Capture the lineage/DAG view from the dbt VS Code extension (same project and dependencies).
-2. Include the capture in the repository as evidence.
+1. Abrir la vista de linaje/DAG desde la extensión de dbt en VS Code, usando el mismo proyecto y dependencias.
+2. Guardar la captura en el repositorio como evidencia.
 
-If policy is relaxed later, run:
+Si más adelante la política se relaja, puedes ejecutar:
 
 1. `python -m dbt.cli.main docs generate`
 2. `python -m dbt.cli.main docs serve`
