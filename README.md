@@ -92,7 +92,9 @@ La clase 5 y la clase 6 están separadas por el historial de commits y por archi
 
 Última validación completa ejecutada localmente con `dbt build --profiles-dir .`:
 
-- Resultado: `PASS=42 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=42`.
+- Resultado: `PASS=44 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=44`.
+- Evidencia visual: `dbt_build_ok.png`.
+- Salida completa de consola: `dbt_build_ok.txt`.
 
 ## Alternativa para generar el DAG
 
