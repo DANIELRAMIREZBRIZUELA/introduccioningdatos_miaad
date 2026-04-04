@@ -17,6 +17,8 @@ profiles.wsl.yml
 
 # Class materials (not deliverables)
 *.pdf
+Grabacion_Clase*.txt
+clase7.pdf
 
 # OS/editor clutter
 .DS_Store
