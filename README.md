@@ -43,6 +43,19 @@ Configured via dbt vars in `dbt_project.yml`:
 
 The lineage screenshot for class 5 deliverable is included at `Clase5_DAG.png`.
 
+## Scope by class (for grading)
+
+Class 5 ends in commit `c2618a5` on `main` with these deliverables:
+
+1. `dbt_project.yml` configured.
+2. At least 2 staging models.
+3. At least 1 intermediate model.
+4. At least 1 mart model.
+5. `models/staging/_sources.yml` configured.
+6. DAG screenshot included as `Clase5_DAG.png`.
+
+Class 6 starts after this point and is not part of the Class 5 grading scope. Planned Class 6 work includes package installation (dbt-expectations), additional tests, and expanded documentation.
+
 ## DAG screenshot workaround
 
 Your machine policy blocks loading the MotherDuck DuckDB extension for `dbt-core docs generate` (Windows App Control), while `dbt-fusion` runs successfully.
