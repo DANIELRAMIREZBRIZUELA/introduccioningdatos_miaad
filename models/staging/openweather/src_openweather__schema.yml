@@ -2,45 +2,65 @@ version: 2
 
 models:
   - name: stg_openweather__weather
-    description: Cleaned OpenWeather records extracted from the Airbyte raw table.
+    description: Datos diarios de OpenWeather limpiados desde la fuente raw.
+    tests:
+      - dbt_expectations.expect_table_row_count_to_be_between:
+          arguments:
+            min_value: 1
+            max_value: 10000000
     columns:
       - name: city_name
+        description: Nombre de ciudad derivado de timezone.
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_match_regex:
+              arguments:
+                regex: "^[A-Za-z\\-\\s]+$"
       - name: country_code
+        description: Código de país (placeholder actual N/A).
         tests:
           - not_null
       - name: observation_ts
+        description: Timestamp de observación del clima.
         tests:
           - not_null
       - name: observation_date
+        description: Fecha de observación del clima.
         tests:
           - not_null
       - name: temperature_c
+        description: Temperatura en grados Celsius.
         tests:
           - not_null
       - name: humidity_pct
+        description: Humedad relativa en porcentaje.
         tests:
           - not_null
 
   - name: stg_openweather__current
-    description: Current weather conditions parsed from OpenWeather current JSON payload.
+    description: Datos actuales de OpenWeather parseados del JSON current.
     columns:
       - name: city_name
+        description: Nombre de ciudad derivado de timezone.
         tests:
           - not_null
       - name: country_code
+        description: Código de país (placeholder actual N/A).
         tests:
           - not_null
       - name: observation_ts
+        description: Timestamp de observación actual.
         tests:
           - not_null
       - name: observation_date
+        description: Fecha de observación actual.
         tests:
           - not_null
       - name: temperature_c
+        description: Temperatura actual en grados Celsius.
         tests:
           - not_null
       - name: humidity_pct
+        description: Humedad actual en porcentaje.
         tests:
           - not_null

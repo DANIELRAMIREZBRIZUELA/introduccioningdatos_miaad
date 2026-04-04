@@ -2,17 +2,21 @@ version: 2
 
 models:
   - name: int_openweather__daily_summary
-    description: Intermediate daily weather aggregation by city and country.
+    description: Resumen diario por ciudad y fecha con métricas agregadas.
     columns:
       - name: city_name
+        description: Nombre de ciudad.
         tests:
           - not_null
       - name: country_code
+        description: Código de país.
         tests:
           - not_null
       - name: observation_date
+        description: Fecha del agregado diario.
         tests:
           - not_null
       - name: observation_count
+        description: Cantidad de observaciones usadas para el agregado.
         tests:
           - not_null

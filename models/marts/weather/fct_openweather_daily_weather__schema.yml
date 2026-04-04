@@ -2,24 +2,29 @@ version: 2
 
 models:
   - name: fct_openweather_daily_weather
-    description: Final analytic table for OpenWeather daily metrics.
+    description: Tabla analítica final con métricas diarias de clima.
     columns:
       - name: city_name
+        description: Ciudad para la métrica agregada.
         tests:
           - not_null
       - name: country_code
+        description: Código de país.
         tests:
           - not_null
       - name: observation_date
+        description: Fecha de la observación agregada.
         tests:
           - not_null
       - name: observation_count
+        description: Cantidad de observaciones diarias consideradas.
         tests:
           - not_null
           - greater_than_or_equal:
               arguments:
                 min_value: 1
       - name: avg_temperature_c
+        description: Temperatura promedio diaria en Celsius.
         tests:
           - not_null
           - between_inclusive:
@@ -27,14 +32,32 @@ models:
                 min_value: -80
                 max_value: 60
       - name: avg_humidity_pct
+        description: Humedad promedio diaria en porcentaje.
         tests:
           - between_inclusive:
+              arguments:
+                min_value: 0
+                max_value: 100
+          - dbt_expectations.expect_column_values_to_be_between:
               arguments:
                 min_value: 0
                 max_value: 100
       - name: avg_cloudiness_pct
+        description: Nubosidad promedio diaria en porcentaje.
         tests:
           - between_inclusive:
               arguments:
                 min_value: 0
                 max_value: 100
+      - name: sky_condition
+        description: Categoría de nubosidad (clear, partly_cloudy, very_cloudy).
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['clear', 'partly_cloudy', 'very_cloudy']
+      - name: temperature_band
+        description: Banda de temperatura (cold, mild, warm).
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['cold', 'mild', 'warm']
