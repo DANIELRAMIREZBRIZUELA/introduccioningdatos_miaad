@@ -54,7 +54,16 @@ Class 5 ends in commit `c2618a5` on `main` with these deliverables:
 5. `models/staging/_sources.yml` configured.
 6. DAG screenshot included as `Clase5_DAG.png`.
 
-Class 6 starts after this point and is not part of the Class 5 grading scope. Planned Class 6 work includes package installation (dbt-expectations), additional tests, and expanded documentation.
+Class 6 starts after Class 5 and is completed in commit `0964bda` on `main` with these deliverables:
+
+1. `dbt-expectations` installed (`packages.yml` + `package-lock.yml`).
+2. 5+ generic tests in model schema YAML files.
+3. 3 dbt-expectations tests in schema YAML files.
+4. 2 singular tests in `tests/assert_no_future_observation_dates.sql` and `tests/assert_temperature_band_consistency.sql`.
+5. Documentation expanded in model/column descriptions.
+6. DAG screenshot included as `Clase6_DAG.png`.
+
+Class 5 and Class 6 are intentionally separated by commit history and by dedicated DAG evidence files (`Clase5_DAG.png` and `Clase6_DAG.png`).
 
 ## DAG screenshot workaround
 
