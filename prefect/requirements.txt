@@ -1,0 +1,5 @@
+prefect
+prefect-dbt
+mysql-connector-python
+python-dotenv
+httpx

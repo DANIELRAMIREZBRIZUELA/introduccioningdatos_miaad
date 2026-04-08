@@ -1,0 +1,43 @@
+version: 2
+
+sources:
+  - name: ecommerce_raw
+    database: "{{ target.database }}"
+    schema: "{{ var('ecommerce_raw_schema', 'main') }}"
+    tables:
+      - name: website_sessions
+      - name: website_pageviews
+      - name: orders
+      - name: order_items
+      - name: order_item_refunds
+      - name: products
+
+models:
+  - name: stg_ecommerce__sessions
+    columns:
+      - name: website_session_id
+        tests: [not_null, unique]
+  - name: stg_ecommerce__pageviews
+    columns:
+      - name: website_pageview_id
+        tests: [not_null, unique]
+  - name: stg_ecommerce__orders
+    columns:
+      - name: order_id
+        tests: [not_null, unique]
+      - name: website_session_id
+        tests: [not_null]
+  - name: stg_ecommerce__order_items
+    columns:
+      - name: order_item_id
+        tests: [not_null, unique]
+      - name: order_id
+        tests: [not_null]
+  - name: stg_ecommerce__refunds
+    columns:
+      - name: order_item_refund_id
+        tests: [not_null, unique]
+  - name: stg_ecommerce__products
+    columns:
+      - name: product_id
+        tests: [not_null, unique]

@@ -1,0 +1,96 @@
+(.venv-wsl) impactales@noopoiesis:/mnt/c/Users/impactales/Documents/GitHub/Integraciondatos/mi_proyeco_dbt$ cd /mnt/c/Users/impactales/Documents/GitHub/Integraciondatos/mi_proyeco_dbt
+source .venv-wsl/bin/activate
+dbt deps
+dbt build --select path:models/staging/ecommerce path:models/intermediate/ecommerce path:models/marts/ecommerce
+13:46:00  Running with dbt=1.11.7
+13:46:02  Installing metaplane/dbt_expectations
+13:46:10  Installed from version 0.10.10
+13:46:10  Up to date!
+13:46:10  Installing godatadriven/dbt_date
+13:46:13  Installed from version 0.17.2
+13:46:13  Up to date!
+13:46:28  Running with dbt=1.11.7
+13:46:29  Registered adapter: duckdb=1.10.1
+13:46:43  Found 66 data tests, 14 models, 8 sources, 755 macros
+13:46:43  
+13:46:43  Concurrency: 4 threads (target='dev')
+13:46:43
+13:46:51  1 of 36 START sql view model main.stg_ecommerce__order_items ................... [RUN]
+13:46:51  2 of 36 START sql view model main.stg_ecommerce__orders ........................ [RUN]
+13:46:51  3 of 36 START sql view model main.stg_ecommerce__pageviews ..................... [RUN]
+13:46:51  4 of 36 START sql view model main.stg_ecommerce__products ...................... [RUN]
+13:46:52  1 of 36 OK created sql view model main.stg_ecommerce__order_items .............. [OK in 1.50s]
+13:46:52  3 of 36 OK created sql view model main.stg_ecommerce__pageviews ................ [OK in 1.51s]
+13:46:52  2 of 36 OK created sql view model main.stg_ecommerce__orders ................... [OK in 1.51s]
+13:46:52  4 of 36 OK created sql view model main.stg_ecommerce__products ................. [OK in 1.51s]
+13:46:52  5 of 36 START sql view model main.stg_ecommerce__refunds ....................... [RUN]
+13:46:52  6 of 36 START sql view model main.stg_ecommerce__sessions ...................... [RUN]
+13:46:52  7 of 36 START test not_null_stg_ecommerce__order_items_order_id ................ [RUN]
+13:46:52  8 of 36 START test not_null_stg_ecommerce__order_items_order_item_id ........... [RUN]
+13:46:53  7 of 36 PASS not_null_stg_ecommerce__order_items_order_id ...................... [PASS in 0.73s]
+13:46:53  8 of 36 PASS not_null_stg_ecommerce__order_items_order_item_id ................. [PASS in 0.73s]
+13:46:53  9 of 36 START test unique_stg_ecommerce__order_items_order_item_id ............. [RUN]
+13:46:53  10 of 36 START test not_null_stg_ecommerce__pageviews_website_pageview_id ...... [RUN]
+13:46:54  10 of 36 PASS not_null_stg_ecommerce__pageviews_website_pageview_id ............ [PASS in 0.61s]
+13:46:54  9 of 36 PASS unique_stg_ecommerce__order_items_order_item_id ................... [PASS in 0.62s]
+13:46:54  11 of 36 START test unique_stg_ecommerce__pageviews_website_pageview_id ........ [RUN]
+13:46:54  12 of 36 START test not_null_stg_ecommerce__orders_order_id .................... [RUN]
+13:46:54  12 of 36 PASS not_null_stg_ecommerce__orders_order_id .......................... [PASS in 0.70s]
+13:46:54  11 of 36 PASS unique_stg_ecommerce__pageviews_website_pageview_id .............. [PASS in 0.71s]
+13:46:54  13 of 36 START test not_null_stg_ecommerce__orders_website_session_id .......... [RUN]
+13:46:54  14 of 36 START test unique_stg_ecommerce__orders_order_id ...................... [RUN]
+13:46:55  6 of 36 OK created sql view model main.stg_ecommerce__sessions ................. [OK in 2.75s]
+13:46:55  5 of 36 OK created sql view model main.stg_ecommerce__refunds .................. [OK in 2.76s]
+13:46:55  14 of 36 PASS unique_stg_ecommerce__orders_order_id ............................ [PASS in 0.69s]
+13:46:55  15 of 36 START test not_null_stg_ecommerce__products_product_id ................ [RUN]
+13:46:55  13 of 36 PASS not_null_stg_ecommerce__orders_website_session_id ................ [PASS in 0.70s]
+13:46:55  16 of 36 START test unique_stg_ecommerce__products_product_id .................. [RUN]
+13:46:55  17 of 36 START test not_null_stg_ecommerce__sessions_website_session_id ........ [RUN]
+13:46:55  18 of 36 START test unique_stg_ecommerce__sessions_website_session_id .......... [RUN]
+13:46:55  16 of 36 PASS unique_stg_ecommerce__products_product_id ........................ [PASS in 0.30s]
+13:46:55  15 of 36 PASS not_null_stg_ecommerce__products_product_id ...................... [PASS in 0.31s]
+13:46:55  17 of 36 PASS not_null_stg_ecommerce__sessions_website_session_id .............. [PASS in 0.30s]
+13:46:55  19 of 36 START test not_null_stg_ecommerce__refunds_order_item_refund_id ....... [RUN]
+13:46:55  20 of 36 START test unique_stg_ecommerce__refunds_order_item_refund_id ......... [RUN]
+13:46:55  18 of 36 PASS unique_stg_ecommerce__sessions_website_session_id ................ [PASS in 0.30s]
+13:46:56  19 of 36 PASS not_null_stg_ecommerce__refunds_order_item_refund_id ............. [PASS in 0.28s]
+13:46:56  20 of 36 PASS unique_stg_ecommerce__refunds_order_item_refund_id ............... [PASS in 0.28s]
+13:46:56  21 of 36 START sql view model main.int_ecommerce__orders_enriched .............. [RUN]
+13:46:57  21 of 36 OK created sql view model main.int_ecommerce__orders_enriched ......... [OK in 1.18s]
+13:46:57  22 of 36 START test not_null_int_ecommerce__orders_enriched_net_revenue_usd .... [RUN]
+13:46:57  23 of 36 START test not_null_int_ecommerce__orders_enriched_order_id ........... [RUN]
+13:46:57  24 of 36 START test unique_int_ecommerce__orders_enriched_order_id ............. [RUN]
+13:46:57  23 of 36 PASS not_null_int_ecommerce__orders_enriched_order_id ................. [PASS in 0.31s]
+13:46:57  22 of 36 PASS not_null_int_ecommerce__orders_enriched_net_revenue_usd .......... [PASS in 0.32s]
+13:46:57  24 of 36 PASS unique_int_ecommerce__orders_enriched_order_id ................... [PASS in 0.31s]
+13:46:57  25 of 36 START sql table model main.fct_channel_performance .................... [RUN]
+13:46:57  26 of 36 START sql table model main.fct_daily_sales ............................ [RUN]
+13:46:57  27 of 36 START sql table model main.obt_orders_enriched ........................ [RUN]
+13:46:59  25 of 36 OK created sql table model main.fct_channel_performance ............... [OK in 1.45s]
+13:46:59  28 of 36 START test not_null_fct_channel_performance_total_sessions ............ [RUN]
+13:46:59  29 of 36 START test not_null_fct_channel_performance_utm_source ................ [RUN]
+13:46:59  26 of 36 OK created sql table model main.fct_daily_sales ....................... [OK in 1.62s]
+13:46:59  30 of 36 START test not_null_fct_daily_sales_session_date ...................... [RUN]
+13:46:59  27 of 36 OK created sql table model main.obt_orders_enriched ................... [OK in 1.64s]
+13:46:59  31 of 36 START test not_null_fct_daily_sales_total_orders ...................... [RUN]
+13:46:59  29 of 36 PASS not_null_fct_channel_performance_utm_source ...................... [PASS in 0.25s]
+13:46:59  28 of 36 PASS not_null_fct_channel_performance_total_sessions .................. [PASS in 0.26s]
+13:46:59  32 of 36 START test not_null_fct_daily_sales_total_sessions .................... [RUN]
+13:46:59  33 of 36 START test unique_fct_daily_sales_session_date ........................ [RUN]
+13:46:59  30 of 36 PASS not_null_fct_daily_sales_session_date ............................ [PASS in 0.25s]
+13:46:59  31 of 36 PASS not_null_fct_daily_sales_total_orders ............................ [PASS in 0.23s]
+13:46:59  34 of 36 START test not_null_obt_orders_enriched_order_id ...................... [RUN]
+13:46:59  35 of 36 START test not_null_obt_orders_enriched_website_session_id ............ [RUN]
+13:46:59  32 of 36 PASS not_null_fct_daily_sales_total_sessions .......................... [PASS in 0.25s]
+13:46:59  36 of 36 START test unique_obt_orders_enriched_order_id ........................ [RUN]
+13:46:59  33 of 36 PASS unique_fct_daily_sales_session_date .............................. [PASS in 0.26s]
+13:46:59  35 of 36 PASS not_null_obt_orders_enriched_website_session_id .................. [PASS in 0.25s]
+13:46:59  34 of 36 PASS not_null_obt_orders_enriched_order_id ............................ [PASS in 0.27s]
+13:46:59  36 of 36 PASS unique_obt_orders_enriched_order_id .............................. [PASS in 0.25s]
+13:46:59  
+13:46:59  Finished running 3 table models, 26 data tests, 7 view models in 0 hours 0 minutes and 16.37 seconds (16.37s).
+13:47:00  
+13:47:00  Completed successfully
+13:47:00
+13:47:00  Done. PASS=36 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=36
+(.venv-wsl) impactales@noopoiesis:/mnt/c/Users/impactales/Documents/GitHub/Integraciondatos/mi_proyeco_dbt$

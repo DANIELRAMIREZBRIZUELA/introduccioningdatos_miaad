@@ -1,0 +1,232 @@
+/mnt/c/Users/impactales/Documents/GitHub/Integraciondatos/mi_proyeco_dbt/.venv-wsl/lib/python3.12/site-packages/prefect_dbt/cli/__init__.py:3: UserWarning: prefect_dbt.cli is deprecated and will be removed in a future release. Please use prefect_dbt.core instead.
+  warnings.warn(
+11:28:25.043 | INFO    | Flow run 'orchid-cow' - Beginning flow run 'orchid-cow' for flow 'Clase7_Ecommerce_Pipeline'
+11:28:25.048 | INFO    | Flow run 'orchid-cow' - View at http://127.0.0.1:4200/runs/flow-run/285d1185-cc8c-494b-812f-9ab2dbfc54b0
+11:28:25.049 | INFO    | Flow run 'orchid-cow' - ================================================================================
+11:28:25.179 | INFO    | Flow run 'orchid-cow' - Iniciando flujo Clase 7: Ecommerce ETL + Transformación
+11:28:25.180 | INFO    | Flow run 'orchid-cow' - ================================================================================
+11:28:25.180 | INFO    | Flow run 'orchid-cow' - 
+[1/3] Validando conexión MySQL...
+11:28:27.247 | INFO    | Task run 'validate_mysql_connection-f27' - ✓ MySQL connected. Test count: 472871
+11:28:27.252 | INFO    | Task run 'validate_mysql_connection-f27' - Finished in state Completed()
+11:28:27.253 | INFO    | Flow run 'orchid-cow' - MySQL Aiven conexión exitosa. Filas en website_sessions: 472871
+11:28:27.254 | INFO    | Flow run 'orchid-cow' - 
+[2/3] Validando sincronización MotherDuck...
+11:28:32.626 | ERROR   | Task run 'validate_motherduck_data-609' - ✗ MotherDuck validation failed: Binder Error: Referenced column "row_count" not found in FROM clause!
+Candidate bindings: "reference_generation", "user_defined_type_name", "table_catalog", "user_defined_type_schema", "user_defined_type_catalog"
+
+LINE 4:             row_count
+                    ^
+11:28:32.629 | INFO    | Task run 'validate_motherduck_data-609' - Finished in state Completed()
+11:28:32.630 | INFO    | Flow run 'orchid-cow' - Error: Binder Error: Referenced column "row_count" not found in FROM clause!
+Candidate bindings: "reference_generation", "user_defined_type_name", "table_catalog", "user_defined_type_schema", "user_defined_type_catalog"
+
+LINE 4:             row_count
+                    ^
+11:28:32.631 | INFO    | Flow run 'orchid-cow' - 
+[3/3] Ejecutando dbt build...
+11:28:32.634 | INFO    | Task run 'execute_dbt_build-955' - Ejecutando dbt build desde: /mnt/c/Users/impactales/Documents/GitHub/Integraciondatos/mi_proyeco_dbt
+11:28:32.668 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 triggered with 2 commands running inside the '.' directory.
+11:28:48.321 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:28:48  Running with dbt=1.11.7
+11:28:51.295 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:28:51  Installing metaplane/dbt_expectations
+11:29:09.224 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:09  Installed from version 0.10.10
+11:29:09.225 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:09  Up to date!
+11:29:09.227 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:09  Installing godatadriven/dbt_date
+11:29:12.369 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:12  Installed from version 0.17.2
+11:29:12.371 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:12  Up to date!
+11:29:31.016 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:31  Running with dbt=1.11.7
+11:29:32.422 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:32  Registered adapter: duckdb=1.10.1
+11:29:46.694 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:46  Found 66 data tests, 14 models, 8 sources, 755 macros
+11:29:46.775 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:46
+11:29:46.777 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:46  Concurrency: 4 threads (target='dev')
+11:29:46.778 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:46
+11:29:54.106 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:54  1 of 36 START sql view model main.stg_ecommerce__order_items ................... [RUN]
+11:29:54.108 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:54  2 of 36 START sql view model main.stg_ecommerce__orders ........................ [RUN]
+11:29:54.109 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:54  3 of 36 START sql view model main.stg_ecommerce__pageviews ..................... [RUN]
+11:29:54.111 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:54  4 of 36 START sql view model main.stg_ecommerce__products ...................... [RUN]
+11:29:57.782 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:57  2 of 36 OK created sql view model main.stg_ecommerce__orders ................... [[32mOK[0m in 3.66s]
+11:29:57.784 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:57  4 of 36 OK created sql view model main.stg_ecommerce__products ................. [[32mOK[0m in 3.65s]
+11:29:57.785 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:57  3 of 36 OK created sql view model main.stg_ecommerce__pageviews ................ [[32mOK[0m in 3.66s]
+11:29:57.793 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:57  5 of 36 START sql view model main.stg_ecommerce__refunds ....................... [RUN]
+11:29:57.794 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:57  6 of 36 START sql view model main.stg_ecommerce__sessions ...................... [RUN]
+11:29:57.795 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:57  7 of 36 START test not_null_stg_ecommerce__orders_order_id ..................... [RUN]
+11:29:57.951 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:57  1 of 36 OK created sql view model main.stg_ecommerce__order_items .............. [[32mOK[0m in 3.84s]
+11:29:57.953 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:29:57  8 of 36 START test not_null_stg_ecommerce__orders_website_session_id ........... [RUN]
+11:30:19.911 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:30:19  8 of 36 PASS not_null_stg_ecommerce__orders_website_session_id ................. [[32mPASS[0m in 21.96s]
+11:30:19.917 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:30:19  9 of 36 START test unique_stg_ecommerce__orders_order_id ....................... [RUN]
+11:30:45.111 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:30:45  7 of 36 PASS not_null_stg_ecommerce__orders_order_id ........................... [[32mPASS[0m in 47.31s]
+11:30:45.116 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:30:45  10 of 36 START test not_null_stg_ecommerce__products_product_id ................ [RUN]
+11:30:45.852 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:30:45  9 of 36 PASS unique_stg_ecommerce__orders_order_id ............................. [[32mPASS[0m in 25.93s]
+11:30:45.857 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:30:45  11 of 36 START test unique_stg_ecommerce__products_product_id .................. [RUN]
+11:30:47.876 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:30:47  10 of 36 PASS not_null_stg_ecommerce__products_product_id ...................... [[32mPASS[0m in 2.76s]
+11:30:47.881 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:30:47  12 of 36 START test not_null_stg_ecommerce__pageviews_website_pageview_id ...... [RUN]
+11:30:56.401 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:30:56  11 of 36 PASS unique_stg_ecommerce__products_product_id ........................ [[32mPASS[0m in 10.54s]
+11:30:56.407 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:30:56  13 of 36 START test unique_stg_ecommerce__pageviews_website_pageview_id ........ [RUN]
+11:30:57.354 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:30:57  12 of 36 PASS not_null_stg_ecommerce__pageviews_website_pageview_id ............ [[32mPASS[0m in 9.47s]
+11:30:57.359 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:30:57  14 of 36 START test not_null_stg_ecommerce__order_items_order_id ............... [RUN]
+11:30:58.159 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:30:58  13 of 36 PASS unique_stg_ecommerce__pageviews_website_pageview_id .............. [[32mPASS[0m in 1.75s]
+11:30:58.165 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:30:58  15 of 36 START test not_null_stg_ecommerce__order_items_order_item_id .......... [RUN]
+11:30:58.642 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:30:58  14 of 36 PASS not_null_stg_ecommerce__order_items_order_id ..................... [[32mPASS[0m in 1.28s]
+11:30:58.646 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:30:58  16 of 36 START test unique_stg_ecommerce__order_items_order_item_id ............ [RUN]
+11:30:59.833 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:30:59  15 of 36 PASS not_null_stg_ecommerce__order_items_order_item_id ................ [[32mPASS[0m in 1.67s]
+11:31:00.258 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:00  16 of 36 PASS unique_stg_ecommerce__order_items_order_item_id .................. [[32mPASS[0m in 1.61s]
+11:31:00.916 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:00  6 of 36 OK created sql view model main.stg_ecommerce__sessions ................. [[32mOK[0m in 63.12s]
+11:31:00.917 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:00  5 of 36 OK created sql view model main.stg_ecommerce__refunds .................. [[32mOK[0m in 63.12s]
+11:31:00.924 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:00  17 of 36 START test not_null_stg_ecommerce__sessions_website_session_id ........ [RUN]
+11:31:00.925 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:00  18 of 36 START test unique_stg_ecommerce__sessions_website_session_id .......... [RUN]
+11:31:00.926 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:00  19 of 36 START test not_null_stg_ecommerce__refunds_order_item_refund_id ....... [RUN]
+11:31:00.928 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:00  20 of 36 START test unique_stg_ecommerce__refunds_order_item_refund_id ......... [RUN]
+11:31:01.261 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:01  19 of 36 PASS not_null_stg_ecommerce__refunds_order_item_refund_id ............. [[32mPASS[0m in 0.33s]
+11:31:01.262 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:01  20 of 36 PASS unique_stg_ecommerce__refunds_order_item_refund_id ............... [[32mPASS[0m in 0.33s]
+11:31:01.266 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:01  18 of 36 PASS unique_stg_ecommerce__sessions_website_session_id ................ [[32mPASS[0m in 0.34s]
+11:31:01.272 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:01  17 of 36 PASS not_null_stg_ecommerce__sessions_website_session_id .............. [[32mPASS[0m in 0.34s]
+11:31:01.282 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:01  21 of 36 START sql view model main.int_ecommerce__orders_enriched .............. [RUN]
+11:31:01.905 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:01  21 of 36 OK created sql view model main.int_ecommerce__orders_enriched ......... [[32mOK[0m in 0.62s]
+11:31:01.911 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:01  22 of 36 START test not_null_int_ecommerce__orders_enriched_net_revenue_usd .... [RUN]
+11:31:01.913 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:01  23 of 36 START test not_null_int_ecommerce__orders_enriched_order_id ........... [RUN]
+11:31:01.914 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:01  24 of 36 START test unique_int_ecommerce__orders_enriched_order_id ............. [RUN]
+11:31:02.193 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:02  22 of 36 PASS not_null_int_ecommerce__orders_enriched_net_revenue_usd .......... [[32mPASS[0m in 0.28s]
+11:31:02.264 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:02  24 of 36 PASS unique_int_ecommerce__orders_enriched_order_id ................... [[32mPASS[0m in 0.35s]
+11:31:02.266 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:02  23 of 36 PASS not_null_int_ecommerce__orders_enriched_order_id ................. [[32mPASS[0m in 0.35s]
+11:31:02.276 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:02  25 of 36 START sql table model main.fct_channel_performance .................... [RUN]
+11:31:02.277 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:02  26 of 36 START sql table model main.fct_daily_sales ............................ [RUN]
+11:31:02.279 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:02  27 of 36 START sql table model main.obt_orders_enriched ........................ [RUN]
+11:31:20.715 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:20  26 of 36 OK created sql table model main.fct_daily_sales ....................... [[32mOK[0m in 18.43s]
+11:31:20.717 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:20  27 of 36 OK created sql table model main.obt_orders_enriched ................... [[32mOK[0m in 18.43s]
+11:31:20.718 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:20  25 of 36 OK created sql table model main.fct_channel_performance ............... [[32mOK[0m in 18.43s]
+11:31:20.725 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:20  28 of 36 START test not_null_fct_daily_sales_session_date ...................... [RUN]
+11:31:20.726 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:20  29 of 36 START test not_null_fct_daily_sales_total_orders ...................... [RUN]
+11:31:20.727 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:20  30 of 36 START test not_null_fct_daily_sales_total_sessions .................... [RUN]
+11:31:20.728 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:20  31 of 36 START test unique_fct_daily_sales_session_date ........................ [RUN]
+11:31:20.987 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:20  30 of 36 PASS not_null_fct_daily_sales_total_sessions .......................... [[32mPASS[0m in 0.25s]
+11:31:20.990 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:20  28 of 36 PASS not_null_fct_daily_sales_session_date ............................ [[32mPASS[0m in 0.26s]
+11:31:20.998 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:20  29 of 36 PASS not_null_fct_daily_sales_total_orders ............................ [[32mPASS[0m in 0.27s]
+11:31:21.001 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:21  31 of 36 PASS unique_fct_daily_sales_session_date .............................. [[32mPASS[0m in 0.27s]
+11:31:21.004 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:21  32 of 36 START test not_null_obt_orders_enriched_order_id ...................... [RUN]
+11:31:21.007 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:21  33 of 36 START test not_null_obt_orders_enriched_website_session_id ............ [RUN]
+11:31:21.015 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:21  34 of 36 START test unique_obt_orders_enriched_order_id ........................ [RUN]
+11:31:21.017 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:21  35 of 36 START test not_null_fct_channel_performance_total_sessions ............ [RUN]
+11:31:21.297 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:21  32 of 36 PASS not_null_obt_orders_enriched_order_id ............................ [[32mPASS[0m in 0.29s]
+11:31:21.299 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:21  33 of 36 PASS not_null_obt_orders_enriched_website_session_id .................. [[32mPASS[0m in 0.28s]
+11:31:21.300 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:21  35 of 36 PASS not_null_fct_channel_performance_total_sessions .................. [[32mPASS[0m in 0.27s]
+11:31:21.314 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:21  36 of 36 START test not_null_fct_channel_performance_utm_source ................ [RUN]
+11:31:21.316 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:21  34 of 36 PASS unique_obt_orders_enriched_order_id .............................. [[32mPASS[0m in 0.30s]
+11:31:21.620 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:21  36 of 36 PASS not_null_fct_channel_performance_utm_source ...................... [[32mPASS[0m in 0.30s]
+11:31:21.646 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:21
+11:31:21.647 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:21  Finished running 3 table models, 26 data tests, 7 view models in 0 hours 1 minutes and 34.87 seconds (94.87s).
+11:31:21.756 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:21
+11:31:21.758 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:21  [32mCompleted successfully[0m
+11:31:21.759 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:21
+11:31:21.760 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 stream output:
+[0m14:31:21  Done. PASS=36 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=36
+11:31:23.140 | INFO    | Task run 'execute_dbt_build-955' - PID 21121 completed with return code 0.
+11:31:23.142 | INFO    | Task run 'execute_dbt_build-955' - dbt build completado exitosamente
+11:31:23.148 | INFO    | Task run 'execute_dbt_build-955' - Finished in state Completed()
+11:31:23.150 | INFO    | Flow run 'orchid-cow' - dbt build ejecutado
+11:31:23.151 | INFO    | Flow run 'orchid-cow' - 
+================================================================================
+11:31:23.152 | INFO    | Flow run 'orchid-cow' - REPORTE FINAL
+11:31:23.153 | INFO    | Flow run 'orchid-cow' - ================================================================================
+11:31:23.154 | INFO    | Flow run 'orchid-cow' - mysql           : success
+11:31:23.155 | INFO    | Flow run 'orchid-cow' - motherduck      : failed
+11:31:23.156 | INFO    | Flow run 'orchid-cow' - dbt             : success
+11:31:23.157 | INFO    | Flow run 'orchid-cow' - ================================================================================
+
+11:31:23.422 | INFO    | Flow run 'orchid-cow' - Finished in state Completed()
+
+✓ Flujo completado
+===============================================
+
+11:29:38.667 | INFO    | Flow run 'garrulous-kangaroo' - Finished in state Completed()
+
+✓ Flujo completado

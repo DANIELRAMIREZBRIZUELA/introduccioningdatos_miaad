@@ -1,0 +1,26 @@
+Metabase connection for MotherDuck (Clase 7)
+
+1) Start Metabase (Docker)
+   docker compose -f metabase/docker-compose.clase7.yml up -d
+
+2) Open setup page
+   http://localhost:3000
+
+3) Add database in Metabase
+   Engine: PostgreSQL
+   Host: mdw.motherduck.com
+   Port: 5432
+   Database name: airbyte_curso
+   Username: motherduck
+   Password: <MOTHERDUCK_TOKEN>
+   Use SSL: true
+   SSL Mode: require
+
+4) Tables to use in dashboard
+   main.fct_daily_sales
+   main.fct_channel_performance
+   main.obt_orders_enriched
+
+Notes
+- If connection fails, verify token and SSL settings.
+- Keep token outside git and outside screenshots.

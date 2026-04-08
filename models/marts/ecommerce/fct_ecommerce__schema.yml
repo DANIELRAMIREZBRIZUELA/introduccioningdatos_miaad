@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: int_ecommerce__orders_enriched
+    columns:
+      - name: order_id
+        tests: [not_null, unique]
+      - name: net_revenue_usd
+        tests: [not_null]
+  - name: fct_daily_sales
+    columns:
+      - name: session_date
+        tests: [not_null, unique]
+      - name: total_sessions
+        tests: [not_null]
+      - name: total_orders
+        tests: [not_null]
+  - name: fct_channel_performance
+    columns:
+      - name: utm_source
+        tests: [not_null]
+      - name: total_sessions
+        tests: [not_null]
+  - name: obt_orders_enriched
+    columns:
+      - name: order_id
+        tests: [not_null, unique]
+      - name: website_session_id
+        tests: [not_null]

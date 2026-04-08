@@ -1,0 +1,219 @@
+/mnt/c/Users/impactales/Documents/GitHub/Integraciondatos/mi_proyeco_dbt/.venv-wsl/lib/python3.12/site-packages/prefect_dbt/cli/__init__.py:3: UserWarning: prefect_dbt.cli is deprecated and will be removed in a future release. Please use prefect_dbt.core instead.
+  warnings.warn(
+11:36:21.202 | INFO    | Flow run 'aggressive-ibex' - Beginning flow run 'aggressive-ibex' for flow 'Clase7_Ecommerce_Pipeline'
+11:36:21.207 | INFO    | Flow run 'aggressive-ibex' - View at http://127.0.0.1:4200/runs/flow-run/8194e39e-59ea-4411-bfa3-cf0184b6a1b1
+11:36:21.209 | INFO    | Flow run 'aggressive-ibex' - ================================================================================
+11:36:21.337 | INFO    | Flow run 'aggressive-ibex' - Iniciando flujo Clase 7: Ecommerce ETL + Transformación
+11:36:21.338 | INFO    | Flow run 'aggressive-ibex' - ================================================================================
+11:36:21.339 | INFO    | Flow run 'aggressive-ibex' - 
+[1/3] Validando conexión MySQL...
+11:36:30.272 | INFO    | Task run 'validate_mysql_connection-875' - ✓ MySQL connected. Test count: 472871
+11:36:30.278 | INFO    | Task run 'validate_mysql_connection-875' - Finished in state Completed()
+11:36:30.280 | INFO    | Flow run 'aggressive-ibex' - MySQL Aiven conexión exitosa. Filas en website_sessions: 472871
+11:36:30.282 | INFO    | Flow run 'aggressive-ibex' - 
+[2/3] Validando sincronización MotherDuck...
+11:36:50.838 | INFO    | Task run 'validate_motherduck_data-412' - ✓ MotherDuck: 6 tablas encontradas
+11:36:50.841 | INFO    | Task run 'validate_motherduck_data-412' - Finished in state Completed()
+11:36:50.842 | INFO    | Flow run 'aggressive-ibex' - MotherDuck validado. 6 tablas de ecommerce presentes.
+11:36:50.843 | INFO    | Flow run 'aggressive-ibex' - 
+[3/3] Ejecutando dbt build...
+11:36:50.846 | INFO    | Task run 'execute_dbt_build-dcf' - Ejecutando dbt build desde: /mnt/c/Users/impactales/Documents/GitHub/Integraciondatos/mi_proyeco_dbt
+11:36:50.888 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 triggered with 2 commands running inside the '.' directory.
+11:37:07.976 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:37:07  Running with dbt=1.11.7
+11:37:11.110 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:37:11  Installing metaplane/dbt_expectations
+11:37:20.341 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:37:20  Installed from version 0.10.10
+11:37:20.343 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:37:20  Up to date!
+11:37:20.348 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:37:20  Installing godatadriven/dbt_date
+11:37:23.162 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:37:23  Installed from version 0.17.2
+11:37:23.163 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:37:23  Up to date!
+11:37:43.992 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:37:43  Running with dbt=1.11.7
+11:37:43.968 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:37:43  Registered adapter: duckdb=1.10.1
+11:37:59.196 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:37:59  Found 66 data tests, 14 models, 8 sources, 755 macros
+11:37:59.287 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:37:59
+11:37:59.289 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:37:59  Concurrency: 4 threads (target='dev')
+11:37:59.290 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:37:59
+11:38:53.338 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:38:53  1 of 36 START sql view model main.stg_ecommerce__order_items ................... [RUN]
+11:38:53.340 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:38:53  2 of 36 START sql view model main.stg_ecommerce__orders ........................ [RUN]
+11:38:53.342 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:38:53  3 of 36 START sql view model main.stg_ecommerce__pageviews ..................... [RUN]
+11:38:53.343 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:38:53  4 of 36 START sql view model main.stg_ecommerce__products ...................... [RUN]
+11:39:25.887 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:25  4 of 36 OK created sql view model main.stg_ecommerce__products ................. [[32mOK[0m in 32.53s]
+11:39:25.888 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:25  2 of 36 OK created sql view model main.stg_ecommerce__orders ................... [[32mOK[0m in 32.53s]
+11:39:25.889 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:25  1 of 36 OK created sql view model main.stg_ecommerce__order_items .............. [[32mOK[0m in 32.53s]
+11:39:25.890 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:25  3 of 36 OK created sql view model main.stg_ecommerce__pageviews ................ [[32mOK[0m in 32.53s]
+11:39:25.898 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:25  5 of 36 START sql view model main.stg_ecommerce__refunds ....................... [RUN]
+11:39:25.900 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:25  6 of 36 START sql view model main.stg_ecommerce__sessions ...................... [RUN]
+11:39:25.901 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:25  7 of 36 START test not_null_stg_ecommerce__products_product_id ................. [RUN]
+11:39:25.901 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:25  8 of 36 START test unique_stg_ecommerce__products_product_id ................... [RUN]
+11:39:26.485 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:26  8 of 36 PASS unique_stg_ecommerce__products_product_id ......................... [[32mPASS[0m in 0.58s]
+11:39:26.487 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:26  7 of 36 PASS not_null_stg_ecommerce__products_product_id ....................... [[32mPASS[0m in 0.58s]
+11:39:26.495 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:26  9 of 36 START test not_null_stg_ecommerce__orders_order_id ..................... [RUN]
+11:39:26.496 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:26  10 of 36 START test not_null_stg_ecommerce__orders_website_session_id .......... [RUN]
+11:39:26.910 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:26  10 of 36 PASS not_null_stg_ecommerce__orders_website_session_id ................ [[32mPASS[0m in 0.41s]
+11:39:26.912 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:26  9 of 36 PASS not_null_stg_ecommerce__orders_order_id ........................... [[32mPASS[0m in 0.41s]
+11:39:26.920 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:26  11 of 36 START test unique_stg_ecommerce__orders_order_id ...................... [RUN]
+11:39:26.922 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:26  12 of 36 START test not_null_stg_ecommerce__order_items_order_id ............... [RUN]
+11:39:27.413 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:27  11 of 36 PASS unique_stg_ecommerce__orders_order_id ............................ [[32mPASS[0m in 0.49s]
+11:39:27.418 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:27  13 of 36 START test not_null_stg_ecommerce__order_items_order_item_id .......... [RUN]
+11:39:27.499 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:27  12 of 36 PASS not_null_stg_ecommerce__order_items_order_id ..................... [[32mPASS[0m in 0.57s]
+11:39:27.504 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:27  14 of 36 START test unique_stg_ecommerce__order_items_order_item_id ............ [RUN]
+11:39:27.890 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:27  6 of 36 OK created sql view model main.stg_ecommerce__sessions ................. [[32mOK[0m in 1.98s]
+11:39:27.891 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:27  5 of 36 OK created sql view model main.stg_ecommerce__refunds .................. [[32mOK[0m in 1.99s]
+11:39:27.895 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:27  13 of 36 PASS not_null_stg_ecommerce__order_items_order_item_id ................ [[32mPASS[0m in 0.48s]
+11:39:27.895 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:27  15 of 36 START test not_null_stg_ecommerce__pageviews_website_pageview_id ...... [RUN]
+11:39:27.897 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:27  16 of 36 START test unique_stg_ecommerce__pageviews_website_pageview_id ........ [RUN]
+11:39:27.900 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:27  17 of 36 START test not_null_stg_ecommerce__sessions_website_session_id ........ [RUN]
+11:39:28.009 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:28  14 of 36 PASS unique_stg_ecommerce__order_items_order_item_id .................. [[32mPASS[0m in 0.50s]
+11:39:28.011 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:28  18 of 36 START test unique_stg_ecommerce__sessions_website_session_id .......... [RUN]
+11:39:28.209 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:28  15 of 36 PASS not_null_stg_ecommerce__pageviews_website_pageview_id ............ [[32mPASS[0m in 0.31s]
+11:39:28.210 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:28  17 of 36 PASS not_null_stg_ecommerce__sessions_website_session_id .............. [[32mPASS[0m in 0.30s]
+11:39:28.218 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:28  19 of 36 START test not_null_stg_ecommerce__refunds_order_item_refund_id ....... [RUN]
+11:39:28.219 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:28  20 of 36 START test unique_stg_ecommerce__refunds_order_item_refund_id ......... [RUN]
+11:39:28.229 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:28  16 of 36 PASS unique_stg_ecommerce__pageviews_website_pageview_id .............. [[32mPASS[0m in 0.33s]
+11:39:28.243 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:28  18 of 36 PASS unique_stg_ecommerce__sessions_website_session_id ................ [[32mPASS[0m in 0.23s]
+11:39:28.458 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:28  19 of 36 PASS not_null_stg_ecommerce__refunds_order_item_refund_id ............. [[32mPASS[0m in 0.24s]
+11:39:28.459 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:28  20 of 36 PASS unique_stg_ecommerce__refunds_order_item_refund_id ............... [[32mPASS[0m in 0.24s]
+11:39:28.467 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:28  21 of 36 START sql view model main.int_ecommerce__orders_enriched .............. [RUN]
+11:39:29.782 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:29  21 of 36 OK created sql view model main.int_ecommerce__orders_enriched ......... [[32mOK[0m in 1.31s]
+11:39:29.788 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:29  22 of 36 START test not_null_int_ecommerce__orders_enriched_net_revenue_usd .... [RUN]
+11:39:29.789 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:29  23 of 36 START test not_null_int_ecommerce__orders_enriched_order_id ........... [RUN]
+11:39:29.791 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:29  24 of 36 START test unique_int_ecommerce__orders_enriched_order_id ............. [RUN]
+11:39:30.067 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:30  23 of 36 PASS not_null_int_ecommerce__orders_enriched_order_id ................. [[32mPASS[0m in 0.27s]
+11:39:30.087 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:30  22 of 36 PASS not_null_int_ecommerce__orders_enriched_net_revenue_usd .......... [[32mPASS[0m in 0.29s]
+11:39:30.089 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:30  24 of 36 PASS unique_int_ecommerce__orders_enriched_order_id ................... [[32mPASS[0m in 0.29s]
+11:39:30.098 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:30  25 of 36 START sql table model main.fct_channel_performance .................... [RUN]
+11:39:30.099 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:30  26 of 36 START sql table model main.fct_daily_sales ............................ [RUN]
+11:39:30.101 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:39:30  27 of 36 START sql table model main.obt_orders_enriched ........................ [RUN]
+11:40:01.047 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  25 of 36 OK created sql table model main.fct_channel_performance ............... [[32mOK[0m in 30.94s]
+11:40:01.048 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  27 of 36 OK created sql table model main.obt_orders_enriched ................... [[32mOK[0m in 30.94s]
+11:40:01.049 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  26 of 36 OK created sql table model main.fct_daily_sales ....................... [[32mOK[0m in 30.94s]
+11:40:01.058 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  28 of 36 START test not_null_fct_channel_performance_total_sessions ............ [RUN]
+11:40:01.059 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  29 of 36 START test not_null_fct_channel_performance_utm_source ................ [RUN]
+11:40:01.060 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  30 of 36 START test not_null_obt_orders_enriched_order_id ...................... [RUN]
+11:40:01.061 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  31 of 36 START test not_null_obt_orders_enriched_website_session_id ............ [RUN]
+11:40:01.313 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  28 of 36 PASS not_null_fct_channel_performance_total_sessions .................. [[32mPASS[0m in 0.25s]
+11:40:01.322 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  32 of 36 START test unique_obt_orders_enriched_order_id ........................ [RUN]
+11:40:01.324 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  31 of 36 PASS not_null_obt_orders_enriched_website_session_id .................. [[32mPASS[0m in 0.26s]
+11:40:01.325 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  29 of 36 PASS not_null_fct_channel_performance_utm_source ...................... [[32mPASS[0m in 0.26s]
+11:40:01.342 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  33 of 36 START test not_null_fct_daily_sales_session_date ...................... [RUN]
+11:40:01.344 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  34 of 36 START test not_null_fct_daily_sales_total_orders ...................... [RUN]
+11:40:01.391 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  30 of 36 PASS not_null_obt_orders_enriched_order_id ............................ [[32mPASS[0m in 0.33s]
+11:40:01.407 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  35 of 36 START test not_null_fct_daily_sales_total_sessions .................... [RUN]
+11:40:01.612 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  33 of 36 PASS not_null_fct_daily_sales_session_date ............................ [[32mPASS[0m in 0.26s]
+11:40:01.621 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  34 of 36 PASS not_null_fct_daily_sales_total_orders ............................ [[32mPASS[0m in 0.27s]
+11:40:01.622 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  32 of 36 PASS unique_obt_orders_enriched_order_id .............................. [[32mPASS[0m in 0.30s]
+11:40:01.628 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  36 of 36 START test unique_fct_daily_sales_session_date ........................ [RUN]
+11:40:01.650 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  35 of 36 PASS not_null_fct_daily_sales_total_sessions .......................... [[32mPASS[0m in 0.24s]
+11:40:01.882 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  36 of 36 PASS unique_fct_daily_sales_session_date .............................. [[32mPASS[0m in 0.25s]
+11:40:01.909 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01
+11:40:01.911 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:01  Finished running 3 table models, 26 data tests, 7 view models in 0 hours 2 minutes and 2.62 seconds (122.62s).
+11:40:02.033 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:02
+11:40:02.034 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:02  [32mCompleted successfully[0m
+11:40:02.036 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:02
+11:40:02.037 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 stream output:
+[0m14:40:02  Done. PASS=36 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=36
+11:40:03.430 | INFO    | Task run 'execute_dbt_build-dcf' - PID 21703 completed with return code 0.
+11:40:03.431 | INFO    | Task run 'execute_dbt_build-dcf' - dbt build completado exitosamente
+11:40:03.434 | INFO    | Task run 'execute_dbt_build-dcf' - Finished in state Completed()
+11:40:03.436 | INFO    | Flow run 'aggressive-ibex' - dbt build ejecutado
+11:40:03.437 | INFO    | Flow run 'aggressive-ibex' - 
+================================================================================
+11:40:03.438 | INFO    | Flow run 'aggressive-ibex' - REPORTE FINAL
+11:40:03.439 | INFO    | Flow run 'aggressive-ibex' - ================================================================================
+11:40:03.440 | INFO    | Flow run 'aggressive-ibex' - mysql           : success
+11:40:03.441 | INFO    | Flow run 'aggressive-ibex' - motherduck      : success
+11:40:03.442 | INFO    | Flow run 'aggressive-ibex' - dbt             : success
+11:40:03.443 | INFO    | Flow run 'aggressive-ibex' - ================================================================================
+
+11:40:04.392 | INFO    | Flow run 'aggressive-ibex' - Finished in state Completed()
+
+✓ Flujo completado
