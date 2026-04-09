@@ -18,6 +18,12 @@ La consigna del profesor en la transcripcion fue usar dos fuentes de datos no tr
 4. Metabase: dashboard con al menos 5 visualizaciones y 2 filtros.
 5. Evidencias: captura de Prefect UI y captura del dashboard.
 
+## Alcance de la orquestacion implementada
+
+- La orquestacion de Clase 7 se implementa con Prefect en `prefect/flow_ecommerce_clase7.py`.
+- El flujo actual valida conexion MySQL, valida presencia de tablas en MotherDuck y ejecuta `dbt build` para ecommerce.
+- En esta implementacion no se dispara la sincronizacion de Airbyte por API desde Prefect; la connection de Airbyte se mantiene en modo manual y su estado se evidencia con capturas.
+
 ## Estructura a subir
 
 ### dbt
@@ -55,6 +61,8 @@ No versionar `prefect/.env` ni credenciales reales.
 ### Evidencias
 
 - `evidencias/clase7/Captura_Prefect.png`
+- `evidencias/clase7/Captura_Mysql_MotherDuck_Settings.png`
+- `evidencias/clase7/Captura_Mysql_MotherDuck_Schema.png`
 - `evidencias/clase7/captura_UI_Metabase (1).png`
 - `evidencias/clase7/captura_UI_Metabase (2).png`
 - `evidencias/clase7/captura_UI_Metabase (3).png`
