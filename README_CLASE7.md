@@ -53,7 +53,7 @@ No versionar `prefect/.env` ni credenciales reales.
 - Intermediate: combina y prepara las entidades principales.
 - Marts: expone las tablas finales para analisis y visualizacion.
 
-### No incluir en la entrega
+### No se incluyen en la entrega
 
 - `fuzzy-mid-course-prjt.sql` es material de apoyo/practica y no forma parte de la entrega final de Clase 7.
 - `prefect/.env` contiene credenciales reales y no debe versionarse.
@@ -79,5 +79,5 @@ No versionar `prefect/.env` ni credenciales reales.
 
 ## Notas de seguridad
 
-- No incluir tokens, passwords, claves ni archivos `.env` reales en el repositorio.
+- No se incluyen claves ni archivos `.env` reales en el repositorio.
 - Si se documenta configuracion, usar unicamente `.env.example` y descripciones genericas.
