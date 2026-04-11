@@ -68,7 +68,9 @@ No versionar `prefect/.env` ni credenciales reales.
 ### Evidencias
 
 - `evidencias/clase7/Captura_Prefect_Flows.png`
-- `evidencias/clase7/Captura_Prefect_Run.png`
+- `evidencias/clase7/Captura_Prefect_Flows_Clase7_Ecommerce_Pipeline.png`
+- `evidencias/clase7/Captura_Prefect_Dashboard.png`
+- `evidencias/clase7/Captura_Prefect_Runs.png`
 - `evidencias/clase7/Captura_Mysql_MotherDuck_Settings.png`
 - `evidencias/clase7/Captura_Mysql_MotherDuck_Schema.png`
 - `evidencias/clase7/captura_UI_Metabase (1).png`
