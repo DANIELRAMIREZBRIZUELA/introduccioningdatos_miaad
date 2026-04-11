@@ -21,8 +21,15 @@ La consigna del profesor en la transcripcion fue usar dos fuentes de datos no tr
 ## Alcance de la orquestacion implementada
 
 - La orquestacion de Clase 7 se implementa con Prefect en `prefect/flow_ecommerce_clase7.py`.
-- El flujo actual valida conexion MySQL, valida presencia de tablas en MotherDuck y ejecuta `dbt build` para ecommerce.
-- En esta implementacion no se dispara la sincronizacion de Airbyte por API desde Prefect; la connection de Airbyte se mantiene en modo manual y su estado se evidencia con capturas.
+- El flujo actual puede disparar Airbyte Cloud de forma opcional (`run_airbyte`).
+- Para preservar una ejecucion estable de entrega, el modo por defecto usa `run_airbyte=False`; en ese modo el pipeline base sigue ejecutando validación MySQL, validación MotherDuck y `dbt build` para ecommerce.
+- Las variables necesarias para Airbyte Cloud se documentan en `prefect/.env.example`.
+
+## Estado actual validado
+
+- Se ejecutó el flujo completo con estado final `Completed` en Prefect.
+- Resultado validado: `airbyte=skipped`, `mysql=success`, `motherduck=success`, `dbt=success`.
+- Integración API de Airbyte Cloud: implementada en código, pero pendiente de validación end-to-end por errores de autenticación/endpoint observados en pruebas de API.
 
 ## Estructura a subir
 
@@ -67,16 +74,18 @@ No versionar `prefect/.env` ni credenciales reales.
 - `evidencias/clase7/captura_UI_Metabase (1).png`
 - `evidencias/clase7/captura_UI_Metabase (2).png`
 - `evidencias/clase7/captura_UI_Metabase (3).png`
+- `evidencias/clase7/captura_UI_Metabase (4)_filters.png`
 - `evidencias/clase7/dbt_ecommerce_build_pass36.txt`
 - `evidencias/clase7/prefect_clase7_flow_output_v3.txt`
 
 ## Checklist de cumplimiento
 
-- [x] Airbyte configurado.
+- [x] Airbyte configurado (modo manual/documentado).
 - [x] dbt ecommerce ejecutado.
 - [x] Prefect ejecutado.
 - [x] Metabase levantado y dashboard construido.
 - [x] Capturas de Prefect y Metabase guardadas.
+- [ ] Trigger de Airbyte Cloud por API validado de extremo a extremo.
 
 ## Notas de seguridad
 
