@@ -31,39 +31,35 @@ La consigna del profesor en la transcripcion fue usar dos fuentes de datos no tr
 - Resultado validado: `airbyte=skipped`, `mysql=success`, `motherduck=success`, `dbt=success`.
 - Integración API de Airbyte Cloud: implementada en código, pero pendiente de validación end-to-end por errores de autenticación/endpoint observados en pruebas de API.
 
-## Estructura a subir
+## Trabajo realizado
 
 ### dbt
 
-- `models/staging/ecommerce/` - capa staging de ecommerce, con las tablas limpias de entrada.
-- `models/intermediate/ecommerce/` - capa intermedia de ecommerce, con transformaciones y enriquecimiento.
-- `models/marts/ecommerce/` - capa marts de ecommerce, con las tablas finales para analisis y dashboard.
+- Se construyeron y validaron los modelos de ecommerce para staging, intermediate y marts.
+- El `dbt build` quedó ejecutado correctamente para el caso de Clase 7.
 
 ### Prefect
 
-- `prefect/flow_ecommerce_clase7.py`
-- `prefect/requirements.txt`
-- `prefect/run_prefect_flow.sh`
-- `prefect/.env.example`
-
-No versionar `prefect/.env` ni credenciales reales.
+- Se implementó el flujo `prefect/flow_ecommerce_clase7.py` para orquestar la pipeline.
+- El flujo completo quedó validado con estado `Completed`.
+- La ejecución estable por defecto usa `run_airbyte=False`.
 
 ### Metabase
 
-- `metabase/docker-compose.clase7.yml`
-- `metabase/dashboard_queries_clase7.sql`
-- `metabase/metabase_connection_clase7.txt`
+- Se levantó la instancia local de Metabase para la entrega de Clase 7.
+- Se construyó el dashboard final con 5 visualizaciones y 2 filtros.
+- Se generaron las capturas nuevas de evidencia incluidas en esta entrega.
+
+### Airbyte
+
+- La conexión MySQL -> MotherDuck quedó documentada para la clase.
+- La validación end-to-end por API quedó pendiente por los errores ya observados en pruebas.
 
 ### Lectura rapida de la estructura
 
 - Staging: normaliza las fuentes de ecommerce.
 - Intermediate: combina y prepara las entidades principales.
 - Marts: expone las tablas finales para analisis y visualizacion.
-
-### No se incluyen en la entrega
-
-- `fuzzy-mid-course-prjt.sql` es material de apoyo/practica y no forma parte de la entrega final de Clase 7.
-- `prefect/.env` contiene credenciales reales y no debe versionarse.
 
 ### Evidencias
 
@@ -73,10 +69,10 @@ No versionar `prefect/.env` ni credenciales reales.
 - `evidencias/clase7/Captura_Prefect_Runs.png`
 - `evidencias/clase7/Captura_Mysql_MotherDuck_Settings.png`
 - `evidencias/clase7/Captura_Mysql_MotherDuck_Schema.png`
-- `evidencias/clase7/captura_UI_Metabase (1).png`
-- `evidencias/clase7/captura_UI_Metabase (2).png`
-- `evidencias/clase7/captura_UI_Metabase (3).png`
-- `evidencias/clase7/captura_UI_Metabase (4)_filters.png`
+- `evidencias/clase7/captura_Metabase_datos_consultas_tablas.png`
+- `evidencias/clase7/Captura_Metabase_Dashboard_5_visualizaciones.png`
+- `evidencias/clase7/Captura_Metabase_Dashboard_5_visualizaciones_filtro_canales_activo.png`
+- `evidencias/clase7/Captura_Metabase_Dashboard_5_visualizaciones_filtro_fechas_activo.png`
 - `evidencias/clase7/dbt_ecommerce_build_pass36.txt`
 - `evidencias/clase7/prefect_clase7_flow_output_v3.txt`
 
@@ -87,7 +83,6 @@ No versionar `prefect/.env` ni credenciales reales.
 - [x] Prefect ejecutado.
 - [x] Metabase levantado y dashboard construido.
 - [x] Capturas de Prefect y Metabase guardadas.
-- [ ] Trigger de Airbyte Cloud por API validado de extremo a extremo.
 
 ## Notas de seguridad
 
